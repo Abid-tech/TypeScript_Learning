@@ -247,3 +247,211 @@ getRequestFunction('POST') // I only get 2 options to put here, otherwise will g
 
 
 // Starting object oriented programming
+
+/*
+class User {
+    userName : string
+    age : number
+
+    constructor (userName:string, age:number){
+        this.userName = userName
+        this.age = age
+    }
+
+    display():void{
+        console.log(`Name of the user is ${this.userName}. Age of the user is ${this.age}`)
+    }
+}
+
+
+let user1 = new User('Abid',24)
+user1.display()
+
+let user2 = new User('Rakib',26)
+console.log(user2.age)
+*/
+
+
+// Inheritance
+/*
+class User {
+    userName : string
+    age : number
+
+    constructor (userName:string, age:number){
+        this.userName = userName
+        this.age = age
+    }
+
+    display():void{
+        console.log(`Name of the user is ${this.userName}. Age of the user is ${this.age}`)
+    }
+}
+
+class Student extends User{
+    studentId : number
+    constructor (userName:string, age:number, studentId:number){
+        super(userName,age)
+        this.studentId = studentId
+    }
+
+    display(): void {
+        console.log(`Name of the Student is ${this.userName}. Age of the student is ${this.age} and student Id is ${this.studentId}`)
+    }
+}
+
+const std1 = new Student("Abid",24,22299505)
+std1.display()
+*/
+
+
+
+//abstraction
+
+/*
+
+abstract class User {
+    abstract userName : string
+    age : number
+
+    constructor (age:number){
+        this.age = age
+    }
+
+    abstract display():void // can't define the abstract function
+}
+
+class Student extends User{
+    studentId : number
+    userName: string // // Must declare the abstract element if we extend an abstract class
+    constructor (userName:string, age:number, studentId:number){
+        super(age)
+        this.userName = userName
+        this.studentId = studentId
+    }
+
+    display(): void {
+        console.log(`Name of the Student is ${this.userName}. Age of the student is ${this.age} and student Id is ${this.studentId}`)
+    } // Must declare the abstract method if we extend an abstract class
+}
+
+const std1 = new Student("Abid",24,22299505)
+std1.display()
+*/
+
+
+// Encapsulation
+// 4 type
+// 1. Public : can access from anywhere, can modify as well
+// 2. Protected : Can only access by its class and subclasses ( The one who extend it ),  can't modify from outside
+// 3. Private : Can only access by its class. Can create setter and getter method to access and modify it.
+// 4. readonly : can only read from outside of the class. Can't modified outside
+
+
+//1
+/*
+class User {
+    protected userName : string
+    age : number
+
+    constructor (userName:string, age:number){
+        this.userName = userName
+        this.age = age
+    }
+
+    display():void{
+        console.log(`Name of the user is ${this.userName}. Age of the user is ${this.age}`)
+    }
+}
+
+class Student extends User{
+    studentId : number
+    constructor (userName:string, age:number, studentId:number){
+        super(userName,age)
+        this.studentId = studentId
+    }
+
+    display(): void {
+        console.log(`Name of the Student is ${this.userName}. Age of the student is ${this.age} and student Id is ${this.studentId}`)
+    }
+}
+
+const std1 = new Student("Abid",24,22299505)
+std1.userName = 'rakib'
+console.log(std1.userName)
+std1.display()
+*/
+
+
+
+//2 
+/*
+
+class User {
+    protected userName : string
+    age : number
+
+    constructor (userName:string, age:number){
+        this.userName = userName
+        this.age = age
+    }
+
+    display():void{
+        console.log(`Name of the user is ${this.userName}. Age of the user is ${this.age}`)
+    }
+}
+
+class Student extends User{
+    studentId : number
+    constructor (userName:string, age:number, studentId:number){
+        super(userName,age)
+        this.studentId = studentId
+    }
+
+    display(): void {
+        console.log(`Name of the Student is ${this.userName}. Age of the student is ${this.age} and student Id is ${this.studentId}`)
+    }
+}
+
+const std1 = new Student("Abid",24,22299505)
+// std1.userName = 'rakib'  // Can't do this 
+// console.log(std1.userName) // can't do this
+std1.display()
+
+*/
+
+// 3
+
+/*
+class User {
+    private userName : string
+    age : number
+
+    constructor (userName:string, age:number){
+        this.userName = userName
+        this.age = age
+    }
+
+
+    getName():void{
+        console.log(this.userName)
+    }
+    setName(modifiedName:string):void{
+        this.userName = modifiedName
+    }
+   
+
+    display():void{
+        console.log(`Name of the user is ${this.userName}. Age of the user is ${this.age}`)
+    }
+}
+
+
+
+const std1 = new User("Abid",24)
+
+std1.display()
+std1.getName()
+std1.setName('Md. Abid Ali')
+std1.display()
+*/
